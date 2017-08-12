@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Display four different timezones on the page | Display the list of countries in a tabular structure.</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-utils.js"></script>
+      <!--<script src="moment-timezone-with-data.js"></script>-->
+      <script src="data.json" type="text/javascript"></script>
+      <script src = "script/app.js"></script>
+     <script src = "script/moment.js"></script>
+     <script src = "script/moment-timezone.js"></script>
+    <script src = "script/ctrl.js"></script>
+  </head>
+  <body >
+    <div class="fluid-container">
+     <nav class="navbar navbar-inverse">
+       <div class="container-fluid">
+          <div class="navbar-header">
+             <a class="navbar-brand" href="#">Four different TimeZones DIsplay Here</a>
+           </div>
+         </div>
+       </nav>
+         <h1 style="text-align: center">Different TimeZone|Update Time|Current Date ......</h1>
+       <table class="table table-bordered">
+           <thead>
+             <tr>
+               <th>India TimeZone</th>
+               <th>UnitedStates TimeZone</th>
+               <th>London TimeZone</th>
+               <th>Singapore TimeZone</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>Current Time :<span id="res1"></span></td>
+               <td>Current Time :<span id="res2"></td>
+               <td>Current Time :<span id="res3"></td>
+               <td>Current Time :<span id="res4"></td>
+             </tr>
+             <tr>
+               <td>Current Date :<span id="result"></span></td>
+               <td>Current Date :<span id="r1"></td>
+               <td>Current Date :<span id="r2"></td>
+               <td>Current Date :<span id="r3"></td>
+             </tr>
+
+           </tbody>
+         </table>
+      <br/>
+     <br/>
+    <hr/>
+    
+    <div>
+      <h1 style="text-align: center">ALL The Country List | Capital | Currency Of the Country..</h1>
+    </div>
+
+    <div class="" ng-app="myApp" ng-controller ="myCtrl">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <label>Search</label>
+                <input class="form-control" ng-model="input_search" placeholder="Enter the serach tearm, e.g. country name, capital name, currency, phone code etc.">
+            </div>
+            <div class="col-md-6">
+                <label>Select Continent</label>
+                <select class="form-control" >
+                    <option>Select Continet</option>
+                    <option ng-model="input_search" ng-repeat="t in continents">
+                        {{t}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        </div>
+
+      <table class="table">
+   <thead>
+     <tr>
+        <th>Country</th>
+        <th>Capital</th>
+        <th>Currency</th>
+         <th>Code</th>
+         <th>Phone Code</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr class="info" ng-repeat = "c in countryV | filter:input_search">
+        <td>{{c.name}}</td>
+       <td>{{c.capital}}</td>
+       <td>{{c.currency}}</td>
+         <td>{{c.continent}}</td>
+         <td>{{c.phone}}</td>
+     </tr>
+
+   </tbody>
+ </table>
+    </div>
+
+
+
+    </div>
+
+ <nav class="navbar navbar-inverse">
+       <div class="container-fluid">
+          <div class="navbar-header">
+             <a class="navbar-brand" href="#">All Rights Reserved @2017</a>
+             </div>
+             </div>
+  <nav>
+
+
+               </body>
+</html>
